@@ -9,4 +9,10 @@ describe Bike do
 		expect(subject.working?).to eq true
 	end
 
+	it 'can report a bike as broken when I return it.' do
+	 	subject.report_broken
+		expect(subject.broken).to eq true
+	end
+
+
 end
