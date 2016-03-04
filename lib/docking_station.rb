@@ -12,7 +12,7 @@ class DockingStation
   end
 
   def park_bike(bike)
-    raise "NO MORE BIKES PLEASE" if @bikes.length >= 1
+    raise "NO MORE BIKES PLEASE" if @bikes.length >= 20
     @bikes << bike
     @bikes.last
   end
