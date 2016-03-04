@@ -41,8 +41,7 @@ describe DockingStation do
     end
 
     it 'raises an error "NO MORE BIKES PLEASE" when there already are 20 bikes parked' do
-      20.times {subject.park_bike Bike.new}
-      #subject.park_bike(Bike.new)
+      DockingStation::DEFAULT_CAPACITY.times {subject.park_bike Bike.new}
       expect { parked_bike }.to raise_error "NO MORE BIKES PLEASE"
     end
 
