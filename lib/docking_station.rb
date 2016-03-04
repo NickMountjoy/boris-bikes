@@ -7,12 +7,12 @@ class DockingStation
   end
 
   def release_bike
-    raise "NO BIKES" if @bikes.empty?
+    raise "NO BIKES" if empty?
     @bikes.pop
   end
 
   def park_bike(bike)
-    raise "NO MORE BIKES PLEASE" if @bikes.length >= 20
+    raise "NO MORE BIKES PLEASE" if full?
     @bikes << bike
     @bikes.last
   end
@@ -23,6 +23,8 @@ class DockingStation
     @bikes.length >= 20
   end
 
-  
+  def empty?
+    @bikes.empty?
+  end
 
-end
+end  
