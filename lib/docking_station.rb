@@ -17,4 +17,12 @@ class DockingStation
     @bikes.last
   end
 
+  private
+
+  def full?
+    @bikes.length >= 20
+  end
+
+  
+
 end
