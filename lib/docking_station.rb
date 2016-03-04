@@ -1,6 +1,6 @@
 class DockingStation
 
-  attr_reader :capacity, :bikes
+  attr_reader :capacity :bikes
 
   DEFAULT_CAPACITY = 20
 
@@ -22,7 +22,7 @@ class DockingStation
 
   private
 
-  #attr_reader :bikes
+  #attr_accessor :bikes
 
   def full?
     bikes.length >= capacity

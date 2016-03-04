@@ -6,29 +6,31 @@ describe DockingStation do
    let(:parked_bike) { subject.park_bike(bike_instance) }
 
   describe "initialize" do
+    #subject { DockingStation.new }
+    #let(:bike) {Bike.new }
+    it 'defaults capacity' do
+      described_class::DEFAULT_CAPACITY.times do
+        subject.park_bike(bike_instance)
+      end
+      expect{ subject.park_bike(bike_instance)}.to raise_error 'NO MORE BIKES PLEASE'
+      end
     #it { is_expected.to respond_to(:station_instance).with(1).argument }
 
-    # it 'has a default capacity' do
-    #   expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
-    # end
-
-    it 'has a variable capacity' do
-      docking_station = DockingStation.new(50)
-      50.times { docking_station.park_bike Bike.new }
-      expect{ docking_station.park_bike Bike.new }.to raise_error 'NO MORE BIKES PLEASE'
+    it 'has a default capacity' do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
     end
 
   end
 
-  describe "#bike" do
-    it "can view a bike that has been parked in a docking station" do
-      parked_bike
-      expect(subject.bikes).to include(parked_bike)
+    describe "#bike" do
+      it "can view a bike that has been parked in a docking station" do
+        parked_bike
+        expect(subject.bikes).to include(parked_bike)
+      end
     end
-  end
 
 
-  describe '#release_bike' do
+    describe '#release_bike' do
 
     it { is_expected.to respond_to(:release_bike)  }
 
@@ -56,8 +58,8 @@ describe DockingStation do
       expect(subject.park_bike(bike_instance)).to eq bike_instance
     end
 
-    it 'raises an error when full' do
-      subject.capacity.times {subject.park_bike Bike.new}
+    it 'raises an error "NO MORE BIKES PLEASE" when there already are 20 bikes parked' do
+      DockingStation::DEFAULT_CAPACITY.times {subject.park_bike Bike.new}
       expect { parked_bike }.to raise_error "NO MORE BIKES PLEASE"
     end
 
