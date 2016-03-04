@@ -1,16 +1,16 @@
 require 'docking_station'
 
 describe DockingStation do
-   let(:station_instance) { DockingStation.new }
+   #let(:station_instance) { DockingStation.new }
    let(:bike_instance) { Bike.new }
    let(:parked_bike) { subject.park_bike(bike_instance) }
 
   describe "initialize" do
-    it { is_expected.to respond_to(:station_instance).with(1).argument }
+    #it { is_expected.to respond_to(:station_instance).with(1).argument }
 
-    # it 'allow user to set capacity when DockingStation instance is created' do
-    #
-    # end
+    it 'has a default capacity' do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
 
   end
 

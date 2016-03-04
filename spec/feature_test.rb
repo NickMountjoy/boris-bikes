@@ -1,7 +1,7 @@
 require './lib/docking_station'
 require './lib/bike'
 
-p station =  DockingStation.new
+p station = DockingStation.new
 #p bike = Bike.new
 # p station.park_bike(bike)
 # p station.park_bike(Bike.new)
